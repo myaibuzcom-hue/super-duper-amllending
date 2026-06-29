@@ -1,0 +1,2539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AML Lending Group – Premium loans and investment services in Houston, TX. Fast approvals, competitive rates." />
+  <meta name="theme-color" content="#0a0e17" />
+  <title>AML Lending Group | Premium Loans &amp; Investments</title>
+
+  <!-- Preconnect to CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- EmailJS & Paystack SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+  <style>
+    /* ===== ROOT & RESET ===== */
+    :root {
+      --gold: #c9a44c;
+      --gold-light: #e0c87a;
+      --gold-glow: rgba(201, 164, 76, 0.25);
+      --green: #1fae8e;
+      --green-light: #5fd9bd;
+      --blue: #4a8fd6;
+      --dark: #080c14;
+      --dark-card: #0f1628;
+      --dark-border: rgba(255, 255, 255, 0.06);
+      --white: #ffffff;
+      --gray-light: #f1f4f9;
+      --gray: #8b95a5;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'Playfair Display', serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--text-primary);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+    ul {
+      list-style: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section {
+      padding: 5.5rem 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201, 164, 76, 0.1);
+      padding: 0.25rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title h2 .gold {
+      color: var(--gold);
+    }
+
+    .section-title p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .gold-text {
+      color: var(--gold);
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 2rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      background: var(--gold);
+      color: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .btn:hover::after {
+      opacity: 1;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -8px rgba(201, 164, 76, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: #1a1f2b;
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-success {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #1c9e7e;
+      box-shadow: 0 12px 28px -8px rgba(31, 174, 142, 0.5);
+    }
+
+    .btn-danger {
+      background: #e74c3c;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #c0392b;
+    }
+
+    .btn-sm {
+      padding: 0.4rem 1.2rem;
+      font-size: 0.8rem;
+    }
+
+    .btn-gold-outline {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-gold-outline:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      background: rgba(8, 12, 20, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201, 164, 76, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+
+    .site-header.scrolled {
+      background: rgba(8, 12, 20, 0.98);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .logo .gold {
+      color: var(--gold);
+    }
+
+    .logo i {
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-right: 0.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      position: relative;
+      white-space: nowrap;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--dark) !important;
+      padding: 0.5rem 1.5rem !important;
+      border-radius: 999px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-light) !important;
+      color: var(--dark) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1100;
+      padding: 5px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2.5px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+      transform-origin: center;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1040;
+      display: none;
+    }
+
+    .menu-overlay.active {
+      display: block;
+    }
+
+    @media (max-width: 1024px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 340px;
+        height: 100vh;
+        background: var(--dark);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 4rem 2rem;
+        gap: 1.8rem;
+        transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.6);
+        z-index: 1050;
+        border-left: 1px solid rgba(201, 164, 76, 0.1);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links a {
+        font-size: 1.1rem;
+        opacity: 1;
+        color: var(--white);
+      }
+
+      .nav-cta {
+        margin-top: 0.5rem;
+      }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      overflow: hidden;
+      background: var(--dark);
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(160deg, rgba(8, 12, 20, 0.92) 0%, rgba(8, 12, 20, 0.45) 50%, rgba(8, 12, 20, 0.8) 100%);
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: floatParticle 20s infinite linear;
+    }
+
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.3;
+      }
+      90% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 820px;
+      padding: 0 1.5rem;
+      animation: heroFade 1s ease-out;
+    }
+
+    @keyframes heroFade {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201, 164, 76, 0.12);
+      border: 1px solid rgba(201, 164, 76, 0.25);
+      color: var(--gold-light);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.4rem 1.2rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 7vw, 4.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-content h1 .gold {
+      color: var(--gold);
+      position: relative;
+    }
+
+    .hero-content h1 .gold::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gold);
+      opacity: 0.3;
+      border-radius: 2px;
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons .btn {
+      font-size: 1rem;
+      padding: 0.9rem 2.2rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat .number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-stat .label {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ===== GLASS CARD ===== */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(201, 164, 76, 0.25);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ===== SERVICES ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid #eef2f6;
+      padding: 2.5rem 2rem;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gold);
+    }
+
+    .service-card .icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      background: rgba(201, 164, 76, 0.1);
+      border-radius: 50%;
+      margin-bottom: 1.2rem;
+      font-size: 1.6rem;
+      color: var(--gold);
+      transition: var(--transition);
+    }
+
+    .service-card:hover .icon-wrap {
+      background: var(--gold);
+      color: var(--dark);
+      transform: scale(1.05);
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* ===== CALCULATOR ===== */
+    .calc-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid #eef2f6;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .calc-grid .full {
+      grid-column: 1 / -1;
+    }
+
+    .calc-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #eef2f6;
+    }
+
+    .result-item {
+      text-align: center;
+      padding: 0.5rem;
+      background: var(--gray-light);
+      border-radius: var(--radius-sm);
+    }
+
+    .result-item .label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .result-item .value {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .result-item .value.gold {
+      color: var(--gold);
+    }
+
+    /* ===== FORMS ===== */
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-primary);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      background: var(--white);
+      color: var(--text-primary);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201, 164, 76, 0.12);
+    }
+
+    .form-group.error input,
+    .form-group.error select,
+    .form-group.error textarea {
+      border-color: #e74c3c;
+      box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+    }
+
+    .error-message {
+      color: #e74c3c;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .form-group.error .error-message {
+      display: block;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .file-drop-zone {
+      border: 2px dashed #d1d5db;
+      border-radius: var(--radius-sm);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+      cursor: pointer;
+      background: var(--gray-light);
+    }
+
+    .file-drop-zone:hover {
+      border-color: var(--gold);
+      background: #fafcf8;
+    }
+
+    .file-drop-zone i {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .file-drop-zone input[type="file"] {
+      display: none;
+    }
+
+    .file-list {
+      margin-top: 1rem;
+      text-align: left;
+    }
+
+    .file-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+      background: var(--white);
+      border: 1px solid #eef2f6;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .file-item .remove-file {
+      color: #e74c3c;
+      cursor: pointer;
+      font-weight: 700;
+      padding: 0 0.4rem;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid #eef2f6;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gold-light);
+    }
+
+    .testimonial-card .stars {
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-card .quote {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-card .author {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* ===== FAQ ===== */
+    .faq-list {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #eef2f6;
+      padding: 1.5rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item h3 {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.05rem;
+      font-weight: 600;
+      gap: 1rem;
+      transition: color 0.3s;
+    }
+
+    .faq-item h3:hover {
+      color: var(--gold);
+    }
+
+    .faq-item h3 i {
+      transition: transform 0.3s;
+      color: var(--gold);
+    }
+
+    .faq-item.active h3 i {
+      transform: rotate(180deg);
+    }
+
+    .faq-item .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding-top: 1rem;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info-item i {
+      font-size: 1.2rem;
+      color: var(--gold);
+      width: 24px;
+      margin-top: 0.2rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--dark);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 3.5rem 0 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-grid h4 {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-grid ul li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-grid a {
+      transition: color 0.3s;
+    }
+
+    .footer-grid a:hover {
+      color: var(--gold);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: var(--transition);
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-social a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201, 164, 76, 0.05);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35);
+      z-index: 999;
+      transition: var(--transition);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 40px rgba(37, 211, 102, 0.5);
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== MODALS ===== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: 1999;
+      display: none;
+    }
+
+    .modal-overlay.active {
+      display: block;
+    }
+
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      width: 90%;
+      max-width: 480px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      z-index: 2000;
+      display: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .modal.active {
+      display: block;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .modal h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: color 0.3s;
+    }
+
+    .modal .close-modal:hover {
+      color: var(--text-primary);
+    }
+
+    .modal .btn {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== ADMIN DASHBOARD ===== */
+    #adminDashboard {
+      display: none;
+      padding: 2rem 0;
+      background: var(--gray-light);
+      min-height: 80vh;
+    }
+
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .admin-header h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+    }
+
+    .admin-controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .admin-controls input,
+    .admin-controls select {
+      padding: 0.6rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      background: var(--white);
+    }
+
+    .admin-controls input {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .app-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .app-table th,
+    .app-table td {
+      padding: 0.8rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .app-table th {
+      background: var(--dark);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .app-table tr:hover td {
+      background: #fafcf8;
+    }
+
+    .badge {
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .badge-pending {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .badge-approved {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .badge-rejected {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      .section {
+        padding: 4rem 0;
+      }
+
+      .calc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calc-results {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .hero-stat .number {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 3rem 0;
+      }
+
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+
+      .calc-results {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .hero {
+        min-height: 500px;
+        height: auto;
+        padding: 6rem 0 4rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-buttons .btn {
+        width: 80%;
+        justify-content: center;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        margin-top: 2rem;
+      }
+
+      .calc-wrapper {
+        padding: 1.5rem;
+      }
+
+      .admin-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .app-table {
+        font-size: 0.8rem;
+      }
+
+      .app-table th,
+      .app-table td {
+        padding: 0.5rem 0.6rem;
+      }
+
+      .modal {
+        padding: 1.5rem;
+      }
+
+      .modal h3 {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.85rem;
+      }
+
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo"><i class="fas fa-arrow-trend-up"></i><span class="gold">AML</span> Lending Group</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu" role="button">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#calculator">Calculator</a></li>
+          <li><a href="#apply">Apply</a></li>
+          <li><a href="#status">Status</a></li>
+          <li><a href="#payment">Pay</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#apply" class="nav-cta">Apply Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <!-- Replace the video source with your own video or remove the <source> tag to fallback to static background -->
+    <video class="hero-video" autoplay muted loop playsinline poster="">
+      <source src="hero-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-bolt" style="margin-right:0.4rem;"></i> Trusted Since 2024</div>
+      <h1><span class="gold">Smart Funding</span><br />for Ambitious Futures</h1>
+      <p>Fast, transparent loans and high‑yield investment plans tailored to your goals. Trusted by thousands across Texas and beyond.</p>
+      <div class="hero-buttons">
+        <a href="#apply" class="btn"><i class="fas fa-file-invoice"></i> Apply Now</a>
+        <a href="#payment" class="btn btn-outline"><i class="fas fa-credit-card"></i> Make a Payment</a>
+        <a href="#calculator" class="btn btn-dark"><i class="fas fa-calculator"></i> Calculate</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="number" data-count="24">0</span><span class="label">Hours to Approve</span></div>
+        <div class="hero-stat"><span class="number" data-count="500">0</span><span class="label">+ Happy Clients</span></div>
+        <div class="hero-stat"><span class="number" data-count="98">0</span><span class="label">% Satisfaction Rate</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">What We Offer</span>
+        <h2>Our <span class="gold">Services</span></h2>
+        <p>Tailored financial solutions designed to help you grow and thrive.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="icon-wrap"><i class="fas fa-hand-holding-usd"></i></div>
+          <h3>Personal Loans</h3>
+          <p>Quick, transparent loans for any need – education, home improvement, or unexpected expenses.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay:0.1s;">
+          <div class="icon-wrap"><i class="fas fa-building"></i></div>
+          <h3>Business Loans</h3>
+          <p>Flexible financing to expand your business, manage cash flow, or seize new opportunities.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay:0.2s;">
+          <div class="icon-wrap"><i class="fas fa-chart-pie"></i></div>
+          <h3>Investment Plans</h3>
+          <p>High‑yield investment opportunities with capital protection and guaranteed returns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CALCULATOR ===== -->
+  <section class="section" id="calculator" style="background: var(--gray-light);">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Plan Your Loan</span>
+        <h2>Loan <span class="gold">Calculator</span></h2>
+        <p>Estimate your monthly payments instantly.</p>
+      </div>
+      <div class="calc-wrapper reveal">
+        <form id="calcForm" onsubmit="return false;">
+          <div class="calc-grid">
+            <div class="form-group full">
+              <label for="loanAmount">Loan Amount ($)</label>
+              <input type="number" id="loanAmount" placeholder="e.g., 5000" min="100" step="100" required />
+            </div>
+            <div class="form-group">
+              <label for="interestRate">Annual Interest Rate (%)</label>
+              <input type="number" id="interestRate" placeholder="e.g., 5.5" min="0.1" step="0.1" required />
+            </div>
+            <div class="form-group">
+              <label for="loanTerm">Loan Term</label>
+              <select id="loanTerm" required>
+                <option value="">Select term</option>
+                <option value="12">1 year (12 months)</option>
+                <option value="24">2 years (24 months)</option>
+                <option value="36">3 years (36 months)</option>
+                <option value="48">4 years (48 months)</option>
+                <option value="60">5 years (60 months)</option>
+              </select>
+            </div>
+          </div>
+        </form>
+        <div class="calc-results" id="calcResults">
+          <div class="result-item"><div class="label">Monthly Payment</div><div class="value gold" id="monthlyPayment">$0</div></div>
+          <div class="result-item"><div class="label">Total Repayment</div><div class="value" id="totalRepayment">$0</div></div>
+          <div class="result-item"><div class="label">Total Interest</div><div class="value" id="totalInterest">$0</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APPLICATION ===== -->
+  <section class="section" id="apply">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Get Funded</span>
+        <h2>Apply for a <span class="gold">Loan</span></h2>
+        <p>Complete the form below. You can also upload supporting documents.</p>
+      </div>
+      <div class="calc-wrapper reveal" style="max-width:820px; margin:0 auto;">
+        <form id="applicationForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" required />
+              <span class="error-message">Please enter your first name.</span>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" required />
+              <span class="error-message">Please enter your last name.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" required />
+              <span class="error-message">Valid email required (e.g., you@example.com).</span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" required />
+              <span class="error-message">Enter a valid phone number.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="loanType">Loan Type *</label>
+              <select id="loanType" required>
+                <option value="">Select loan type</option>
+                <option value="personal">Personal Loan</option>
+                <option value="business">Business Loan</option>
+                <option value="mortgage">Mortgage</option>
+              </select>
+              <span class="error-message">Please select a loan type.</span>
+            </div>
+            <div class="form-group">
+              <label for="requestedAmount">Requested Amount ($) *</label>
+              <input type="number" id="requestedAmount" min="500" step="100" required />
+              <span class="error-message">Minimum $500.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="purpose">Loan Purpose</label>
+            <textarea id="purpose" placeholder="Briefly describe how you intend to use the funds..." rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Supporting Documents (JPG, PNG, PDF, max 5MB each)</label>
+            <div class="file-drop-zone" id="fileDropZone">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <p>Drag &amp; drop files here or <span style="color:var(--gold);font-weight:600;cursor:pointer;">browse</span></p>
+              <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.pdf" />
+            </div>
+            <div class="file-list" id="fileList"></div>
+          </div>
+          <button type="submit" class="btn" style="width:100%; padding:1rem; font-size:1.05rem;" id="submitBtn">
+            <i class="fas fa-paper-plane"></i> Submit Application
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAYMENT ===== -->
+  <section class="section" id="payment" style="background: var(--gray-light);">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Secure Payment</span>
+        <h2>Make a <span class="gold">Payment</span></h2>
+        <p>Pay your loan application fee or installment securely with Paystack.</p>
+      </div>
+      <div class="calc-wrapper reveal" style="max-width:550px; margin:0 auto;">
+        <form id="paymentForm" onsubmit="return false;">
+          <div class="form-group">
+            <label for="payEmail">Email Address *</label>
+            <input type="email" id="payEmail" required />
+          </div>
+          <div class="form-group">
+            <label>Select Amount</label>
+            <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.8rem;">
+              <button type="button" class="btn btn-sm btn-outline amount-btn" data-amount="50">$50</button>
+              <button type="button" class="btn btn-sm btn-outline amount-btn" data-amount="100">$100</button>
+              <button type="button" class="btn btn-sm btn-outline amount-btn" data-amount="200">$200</button>
+              <button type="button" class="btn btn-sm btn-outline amount-btn" data-amount="500">$500</button>
+            </div>
+            <input type="number" id="payAmount" placeholder="Or enter custom amount" min="1" step="any" />
+          </div>
+          <button type="submit" class="btn" style="width:100%; padding:1rem;">
+            <i class="fas fa-lock"></i> Pay Now
+          </button>
+        </form>
+        <div id="paymentSuccess" style="text-align:center; margin-top:2rem; display:none;">
+          <i class="fas fa-check-circle" style="font-size:3rem; color:var(--green);"></i>
+          <h3 style="margin-top:0.5rem;">Payment Successful!</h3>
+          <p>Transaction reference: <strong id="transactionRef"></strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLIENT PORTAL ===== -->
+  <section class="section" id="status" style="background: var(--white);">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Track Your Application</span>
+        <h2>Check Your <span class="gold">Status</span></h2>
+        <p>Enter your email and reference number to check your application status.</p>
+      </div>
+      <div class="calc-wrapper reveal" style="max-width:550px; margin:0 auto;">
+        <form id="statusForm" onsubmit="return false;">
+          <div class="form-group">
+            <label for="statusEmail">Email Address *</label>
+            <input type="email" id="statusEmail" required />
+          </div>
+          <div class="form-group">
+            <label for="statusRef">Reference Number *</label>
+            <input type="text" id="statusRef" placeholder="e.g., AML-ABC123" required />
+          </div>
+          <button type="submit" class="btn" style="width:100%;">Check Status</button>
+        </form>
+        <div id="statusError" style="color:#e74c3c; margin-top:1rem; display:none;"></div>
+        <div class="client-result" id="clientResult" style="margin-top:1.5rem; background:var(--gray-light); padding:1.5rem; border-radius:var(--radius-sm); display:none;">
+          <p><strong>Name:</strong> <span id="clientName"></span></p>
+          <p><strong>Loan Type:</strong> <span id="clientLoanType"></span></p>
+          <p><strong>Amount:</strong> <span id="clientAmount"></span></p>
+          <p><strong>Status:</strong> <span id="clientStatus"></span></p>
+          <p><strong>Date:</strong> <span id="clientDate"></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about" style="background: var(--gray-light);">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">About Us</span>
+        <h2>About <span class="gold">AML Lending Group</span></h2>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; max-width:1000px; margin:0 auto;">
+        <div class="reveal">
+          <p style="font-size:1.05rem; color:var(--text-secondary);">Based in Houston, Texas, we are a premier loan and investment firm committed to transparent, fair, and fast financial solutions. Our team brings decades of combined experience in banking and private lending.</p>
+          <p style="margin-top:1.2rem; color:var(--text-secondary);">We believe everyone deserves access to capital – whether you're an individual with a dream or a business ready to scale.</p>
+          <div style="display:flex; gap:2rem; margin-top:2rem; flex-wrap:wrap;">
+            <div><span style="font-family:var(--font-display); font-size:1.8rem; font-weight:700; color:var(--gold);">$50M+</span><br /><span style="color:var(--text-secondary); font-size:0.9rem;">Funds Deployed</span></div>
+            <div><span style="font-family:var(--font-display); font-size:1.8rem; font-weight:700; color:var(--gold);">98%</span><br /><span style="color:var(--text-secondary); font-size:0.9rem;">Client Satisfaction</span></div>
+            <div><span style="font-family:var(--font-display); font-size:1.8rem; font-weight:700; color:var(--gold);">24hrs</span><br /><span style="color:var(--text-secondary); font-size:0.9rem;">Average Approval</span></div>
+          </div>
+        </div>
+        <div class="reveal" style="background:var(--white); border-radius:var(--radius); padding:2rem; box-shadow:var(--shadow-lg); text-align:center; border:1px solid #eef2f6;">
+          <i class="fas fa-building" style="font-size:3rem; color:var(--gold); margin-bottom:1rem;"></i>
+          <h3 style="font-family:var(--font-display);">Houston Office</h3>
+          <p style="color:var(--text-secondary);">3050 Post Oak Blvd Unit 510</p>
+          <p style="color:var(--text-secondary);">Houston, TX 77056</p>
+          <p style="margin-top:0.5rem;"><i class="fas fa-phone" style="color:var(--gold);"></i> +1 713 587 6261</p>
+          <p><i class="fas fa-envelope" style="color:var(--gold);"></i> help@amllending.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Client Stories</span>
+        <h2>What Our <span class="gold">Clients Say</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="quote">"AML made the loan process incredibly easy. Funds were in my account within 24 hours. I couldn't be happier."</p>
+          <p class="author">— Jane D., Houston</p>
+        </div>
+        <div class="testimonial-card reveal" style="transition-delay:0.1s;">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="quote">"I've invested with AML for two years. Consistent returns, transparent communication, and a team that truly cares."</p>
+          <p class="author">— Mark T., Dallas</p>
+        </div>
+        <div class="testimonial-card reveal" style="transition-delay:0.2s;">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="quote">"Finally, a lending company that treats you like a partner, not just a number. Highly recommend."</p>
+          <p class="author">— Sarah L., Austin</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section" id="faq" style="background: var(--gray-light);">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Questions?</span>
+        <h2>Frequently Asked <span class="gold">Questions</span></h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item active">
+          <h3>What are the requirements for a personal loan? <i class="fas fa-chevron-down"></i></h3>
+          <div class="faq-answer">Valid ID, proof of income, and a completed application form. No collateral required for amounts under $10,000.</div>
+        </div>
+        <div class="faq-item">
+          <h3>How long does approval take? <i class="fas fa-chevron-down"></i></h3>
+          <div class="faq-answer">Most applications are reviewed within 24 hours, and funds are disbursed immediately after approval.</div>
+        </div>
+        <div class="faq-item">
+          <h3>Is my investment guaranteed? <i class="fas fa-chevron-down"></i></h3>
+          <div class="faq-answer">We offer capital protection on select plans. Please see our investment terms for full details.</div>
+        </div>
+        <div class="faq-item">
+          <h3>Can I repay early? <i class="fas fa-chevron-down"></i></h3>
+          <div class="faq-answer">Yes, you can repay early without any penalties. You'll only pay interest for the period you used the funds.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Connect With Us</span>
+        <h2>Get In <span class="gold">Touch</span></h2>
+        <p>We're here to help. Reach out via phone, email, or visit our Houston office.</p>
+      </div>
+      <div class="contact-grid reveal">
+        <div>
+          <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><div><strong>Address</strong><br />3050 Post Oak Blvd Unit 510, Houston, TX 77056</div></div>
+          <div class="contact-info-item"><i class="fas fa-phone"></i><div><strong>Phone</strong><br /><a href="tel:+17135876261">+1 713 587 6261</a></div></div>
+          <div class="contact-info-item"><i class="fas fa-envelope"></i><div><strong>Email</strong><br /><a href="mailto:help@amllending.com">help@amllending.com</a></div></div>
+          <div class="contact-info-item"><i class="fas fa-clock"></i><div><strong>Office Hours</strong><br />Mon–Fri: 9am – 6pm (CST)</div></div>
+          <div style="margin-top:1.5rem;">
+            <a href="https://wa.me/17135876261" target="_blank" class="btn btn-success"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+          </div>
+        </div>
+        <div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email Address" required />
+            </div>
+            <div class="form-group">
+              <textarea rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn" style="width:100%;">Send Message <i class="fas fa-arrow-right"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="color:var(--white); margin-bottom:0.8rem;"><i class="fas fa-arrow-trend-up" style="color:var(--gold);"></i><span class="gold">AML</span> Lending Group</div>
+          <p style="max-width:280px;">Your trusted partner for loans and investments. Fast, transparent, and built for your success.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#apply">Apply</a></li>
+            <li><a href="#status">Check Status</a></li>
+            <li><a href="#payment">Make a Payment</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#" onclick="showLegal('terms')">Terms of Service</a></li>
+            <li><a href="#" onclick="showLegal('privacy')">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><i class="fas fa-phone" style="color:var(--gold);width:1.2rem;"></i> +1 713 587 6261</li>
+            <li><i class="fas fa-envelope" style="color:var(--gold);width:1.2rem;"></i> help@amllending.com</li>
+            <li><i class="fas fa-map-marker-alt" style="color:var(--gold);width:1.2rem;"></i> Houston, TX</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 AML Lending Group. All rights reserved.</span>
+        <span>
+          <a href="#" onclick="showLegal('terms')" style="color:inherit;">Terms</a> &middot;
+          <a href="#" onclick="showLegal('privacy')" style="color:inherit;">Privacy</a> &middot;
+          <a href="#" id="adminLink" style="color:var(--gray);">Admin</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <a href="https://wa.me/17135876261" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ===== MODALS ===== -->
+  <div class="modal-overlay" id="appModalOverlay"></div>
+  <div class="modal" id="successModal">
+    <span class="close-modal" id="closeModalBtn">&times;</span>
+    <i class="fas fa-check-circle" style="font-size:3rem; color:var(--green); display:block; text-align:center; margin-bottom:0.5rem;"></i>
+    <h3>Application Submitted!</h3>
+    <p style="text-align:center;">Your reference number: <strong id="applicationRefDisplay"></strong></p>
+    <p style="text-align:center; font-size:0.9rem; color:var(--text-secondary);">A confirmation email has been sent. Keep this number to check your status.</p>
+    <button class="btn" id="closeModalBtn2" style="width:100%; margin-top:1rem;">Close</button>
+  </div>
+
+  <div class="modal-overlay" id="loginModalOverlay"></div>
+  <div class="modal" id="loginModal">
+    <span class="close-modal" id="closeLoginModal">&times;</span>
+    <h3>Admin Login</h3>
+    <form id="loginForm" onsubmit="return false;">
+      <div class="form-group">
+        <input type="email" id="loginEmail" placeholder="Email" required />
+      </div>
+      <div class="form-group">
+        <input type="password" id="loginPassword" placeholder="Password" required />
+      </div>
+      <button type="submit" class="btn" style="width:100%;">Log In</button>
+    </form>
+    <p id="loginError" style="color:#e74c3c; text-align:center; margin-top:1rem; display:none;"></p>
+  </div>
+
+  <!-- ===== LEGAL OVERLAY ===== -->
+  <div class="modal-overlay" id="legalModalOverlay"></div>
+  <div class="modal" id="legalModal" style="max-width:700px;">
+    <span class="close-modal" id="closeLegalModal">&times;</span>
+    <h3 id="legalModalTitle">Terms of Service</h3>
+    <div id="legalModalBody" style="max-height:60vh; overflow-y:auto; color:var(--text-secondary); line-height:1.8; font-size:0.95rem;"></div>
+  </div>
+
+  <!-- ===== ADMIN DASHBOARD ===== -->
+  <div id="adminDashboard">
+    <div class="container">
+      <div class="admin-header">
+        <h2><span class="gold-text">Admin</span> Dashboard</h2>
+        <button class="btn btn-danger btn-sm" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+      <div class="admin-controls">
+        <input type="text" id="searchInput" placeholder="Search by name or email..." />
+        <select id="statusFilter">
+          <option value="">All Statuses</option>
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="app-table" id="appTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Amount</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Documents</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="appTableBody"><tr><td colspan="8">Loading...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SUPABASE SDK ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    // ================================================================
+    // 🔐 CONFIGURATION – REPLACE THESE WITH YOUR ACTUAL VALUES
+    // ================================================================
+    const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+    const EMAILJS_PUBLIC_KEY = 'YOUR_EMAILJS_PUBLIC_KEY';
+    const PAYSTACK_PUBLIC_KEY = 'YOUR_PAYSTACK_PUBLIC_KEY';
+    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+    const EMAILJS_CLIENT_TEMPLATE_ID = 'YOUR_CLIENT_TEMPLATE_ID';
+    const EMAILJS_ADMIN_TEMPLATE_ID = 'YOUR_ADMIN_TEMPLATE_ID';
+
+    // ================================================================
+    // 🚀 INIT
+    // ================================================================
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    // ================================================================
+    // 📦 HELPERS
+    // ================================================================
+    function generateRef() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let result = 'AML-';
+      for (let i = 0; i < 6; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return result;
+    }
+
+    function formatCurrency(n) {
+      return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+    }
+
+    // ================================================================
+    // 🧩 PARTICLES
+    // ================================================================
+    (function createParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.width = (Math.random() * 4 + 2) + 'px';
+        p.style.height = p.style.width;
+        p.style.animationDuration = (15 + Math.random() * 20) + 's';
+        p.style.animationDelay = (Math.random() * 15) + 's';
+        container.appendChild(p);
+      }
+    })();
+
+    // ================================================================
+    // 🔢 ANIMATED COUNTERS
+    // ================================================================
+    (function animateCounters() {
+      const counters = document.querySelectorAll('.hero-stat .number');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.dataset.count);
+            let current = 0;
+            const increment = Math.ceil(target / 60);
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                el.textContent = target;
+                clearInterval(timer);
+              } else {
+                el.textContent = current;
+              }
+            }, 25);
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(c => observer.observe(c));
+    })();
+
+    // ================================================================
+    // 🧭 SCROLL REVEAL
+    // ================================================================
+    (function scrollReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach(r => observer.observe(r));
+    })();
+
+    // ================================================================
+    // 🍔 MOBILE MENU
+    // ================================================================
+    (function mobileMenu() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      const overlay = document.getElementById('menuOverlay');
+      const links = navLinks.querySelectorAll('a');
+
+      function closeMenu() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function openMenu() {
+        hamburger.classList.add('active');
+        navLinks.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.contains('active') ? closeMenu() : openMenu();
+      });
+      overlay.addEventListener('click', closeMenu);
+      links.forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) closeMenu();
+      });
+    })();
+
+    // ================================================================
+    // 🧮 LOAN CALCULATOR
+    // ================================================================
+    (function loanCalculator() {
+      const loanAmount = document.getElementById('loanAmount');
+      const interestRate = document.getElementById('interestRate');
+      const loanTerm = document.getElementById('loanTerm');
+      const monthlyPayment = document.getElementById('monthlyPayment');
+      const totalRepayment = document.getElementById('totalRepayment');
+      const totalInterest = document.getElementById('totalInterest');
+
+      function calculate() {
+        const P = parseFloat(loanAmount.value);
+        const r = parseFloat(interestRate.value) / 100 / 12;
+        const n = parseInt(loanTerm.value);
+        if (!P || !r || !n || P <= 0 || r < 0 || n <= 0) {
+          monthlyPayment.textContent = '$0';
+          totalRepayment.textContent = '$0';
+          totalInterest.textContent = '$0';
+          return;
+        }
+        let monthly;
+        if (r === 0) {
+          monthly = P / n;
+        } else {
+          monthly = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+        }
+        const totalPay = monthly * n;
+        const totalInt = totalPay - P;
+        monthlyPayment.textContent = formatCurrency(monthly);
+        totalRepayment.textContent = formatCurrency(totalPay);
+        totalInterest.textContent = formatCurrency(totalInt);
+      }
+
+      [loanAmount, interestRate, loanTerm].forEach(el => {
+        el.addEventListener('input', calculate);
+      });
+      calculate();
+    })();
+
+    // ================================================================
+    // 📄 FILE UPLOAD
+    // ================================================================
+    (function fileUpload() {
+      const fileInput = document.getElementById('fileInput');
+      const fileList = document.getElementById('fileList');
+      const dropZone = document.getElementById('fileDropZone');
+      let selectedFiles = [];
+
+      function renderFiles() {
+        fileList.innerHTML = '';
+        selectedFiles.forEach((file, idx) => {
+          const div = document.createElement('div');
+          div.className = 'file-item';
+          div.innerHTML = `
+            <span>${file.name} (${(file.size / 1024).toFixed(1)} KB)</span>
+            <span class="remove-file" data-idx="${idx}">&times;</span>
+          `;
+          fileList.appendChild(div);
+        });
+        fileList.querySelectorAll('.remove-file').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const idx = parseInt(e.target.dataset.idx);
+            selectedFiles.splice(idx, 1);
+            renderFiles();
+          });
+        });
+      }
+
+      fileInput.addEventListener('change', (e) => {
+        const newFiles = Array.from(e.target.files).filter(f => {
+          const allowed = ['image/jpeg', 'image/png', 'application/pdf'];
+          if (!allowed.includes(f.type)) { alert(f.name + ' is not allowed. Only JPG, PNG, PDF.'); return false; }
+          if (f.size > 5 * 1024 * 1024) { alert(f.name + ' exceeds 5MB limit.'); return false; }
+          return true;
+        });
+        selectedFiles = [...selectedFiles, ...newFiles];
+        renderFiles();
+        fileInput.value = '';
+      });
+
+      dropZone.addEventListener('click', () => fileInput.click());
+      dropZone.addEventListener('dragover', (e) => { e.preventDefault();
+        dropZone.style.borderColor = 'var(--gold)'; });
+      dropZone.addEventListener('dragleave', () => { dropZone.style.borderColor = '#d1d5db'; });
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = '#d1d5db';
+        const files = Array.from(e.dataTransfer.files);
+        fileInput.files = files;
+        const evt = new Event('change', { bubbles: true });
+        Object.defineProperty(evt, 'target', { value: { files: files } });
+        fileInput.dispatchEvent(evt);
+      });
+    })();
+
+    // ================================================================
+    // 📝 APPLICATION FORM
+    // ================================================================
+    (function applicationForm() {
+      const form = document.getElementById('applicationForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const modalOverlay = document.getElementById('appModalOverlay');
+      const modal = document.getElementById('successModal');
+      const refDisplay = document.getElementById('applicationRefDisplay');
+      const closeBtn1 = document.getElementById('closeModalBtn');
+      const closeBtn2 = document.getElementById('closeModalBtn2');
+
+      function showError(input) {
+        const group = input.closest('.form-group');
+        group.classList.add('error');
+      }
+
+      function clearError(input) {
+        const group = input.closest('.form-group');
+        group.classList.remove('error');
+      }
+
+      function validateField(input) {
+        let valid = true;
+        if (input.required && !input.value.trim()) { showError(input);
+          valid = false; } else if (input.type === 'email' && input.value.trim()) {
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) { showError(input);
+            valid = false; } else clearError(input);
+        } else if (input.id === 'phone' && input.value.trim()) {
+          if (input.value.trim().length < 7) { showError(input);
+            valid = false; } else clearError(input);
+        } else if (input.id === 'requestedAmount') {
+          if (parseFloat(input.value) < 500) { showError(input);
+            valid = false; } else clearError(input);
+        } else clearError(input);
+        return valid;
+      }
+
+      form.querySelectorAll('input, select, textarea').forEach(el => {
+        el.addEventListener('blur', () => validateField(el));
+        el.addEventListener('input', () => {
+          if (el.closest('.form-group')?.classList.contains('error')) validateField(el);
+        });
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        let valid = true;
+        form.querySelectorAll('[required]').forEach(el => { if (!validateField(el)) valid = false; });
+        if (!valid) {
+          const first = form.querySelector('.form-group.error');
+          if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        const ref = generateRef();
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const loanType = document.getElementById('loanType').value;
+        const amount = parseFloat(document.getElementById('requestedAmount').value);
+        const purpose = document.getElementById('purpose').value.trim();
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+        const uploadedPaths = [];
+        for (const file of selectedFiles) {
+          const ext = file.name.split('.').pop();
+          const path = `${ref}/${Date.now()}-${Math.random().toString(36).substring(2,8)}.${ext}`;
+          const { error } = await supabaseClient.storage
+            .from('application-documents')
+            .upload(path, file, { cacheControl: '3600', upsert: false });
+          if (error) {
+            console.error('File upload error:', error);
+            alert('Failed to upload: ' + file.name);
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+            return;
+          }
+          uploadedPaths.push(path);
+        }
+
+        const { error } = await supabaseClient.from('applications').insert({
+          first_name: firstName,
+          last_name: lastName,
+          email: email,
+          phone: phone,
+          loan_type: loanType,
+          requested_amount: amount,
+          purpose: purpose || null,
+          application_ref: ref,
+          documents: uploadedPaths,
+          status: 'pending'
+        });
+
+        if (error) {
+          console.error('Insert error:', error);
+          alert('Something went wrong. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+          return;
+        }
+
+        // Send emails
+        const baseParams = { first_name: firstName, last_name: lastName, email, phone, loan_type: loanType,
+          requested_amount: amount, application_ref: ref, purpose: purpose || 'N/A' };
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CLIENT_TEMPLATE_ID, { to_email: email, ...baseParams }).catch(() => {});
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_ADMIN_TEMPLATE_ID, { to_email: 'support@amllending.com', ...baseParams })
+          .catch(() => {});
+
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+        refDisplay.textContent = ref;
+        modalOverlay.classList.add('active');
+        modal.classList.add('active');
+        form.reset();
+        selectedFiles = [];
+        renderFiles();
+        document.querySelectorAll('.form-group').forEach(g => g.classList.remove('error'));
+      });
+
+      function closeModal() {
+        modalOverlay.classList.remove('active');
+        modal.classList.remove('active');
+      }
+      closeBtn1.addEventListener('click', closeModal);
+      closeBtn2.addEventListener('click', closeModal);
+      modalOverlay.addEventListener('click', closeModal);
+    })();
+
+    // ================================================================
+    // 💳 PAYMENT
+    // ================================================================
+    (function payment() {
+      const payAmount = document.getElementById('payAmount');
+      const payEmail = document.getElementById('payEmail');
+      const paymentForm = document.getElementById('paymentForm');
+      const paymentSuccess = document.getElementById('paymentSuccess');
+      const transactionRef = document.getElementById('transactionRef');
+      const amountBtns = document.querySelectorAll('.amount-btn');
+
+      amountBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          payAmount.value = btn.dataset.amount;
+          amountBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+
+      paymentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = payEmail.value.trim();
+        const amountNaira = parseFloat(payAmount.value);
+        if (!email || !amountNaira || amountNaira <= 0) {
+          alert('Please enter a valid email and amount.');
+          return;
+        }
+        const amountKobo = Math.round(amountNaira * 100);
+        const ref = 'AML-PAY-' + Date.now();
+
+        const handler = PaystackPop.setup({
+          key: PAYSTACK_PUBLIC_KEY,
+          email: email,
+          amount: amountKobo,
+          currency: 'NGN',
+          ref: ref,
+          callback: async (response) => {
+            await supabaseClient.from('payments').insert({
+              reference: response.reference,
+              email: email,
+              amount: amountNaira,
+              status: 'success'
+            }).catch(() => {});
+            paymentForm.style.display = 'none';
+            paymentSuccess.style.display = 'block';
+            transactionRef.textContent = response.reference;
+          },
+          onClose: () => { alert('Payment window closed.'); }
+        });
+        handler.openIframe();
+      });
+    })();
+
+    // ================================================================
+    // 🔐 ADMIN DASHBOARD
+    // ================================================================
+    (function admin() {
+      const mainContent = document.getElementById('mainContent');
+      const mainFooter = document.getElementById('mainFooter');
+      const adminDash = document.getElementById('adminDashboard');
+      const adminLink = document.getElementById('adminLink');
+      const loginModal = document.getElementById('loginModal');
+      const loginOverlay = document.getElementById('loginModalOverlay');
+      const loginForm = document.getElementById('loginForm');
+      const loginError = document.getElementById('loginError');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const searchInput = document.getElementById('searchInput');
+      const statusFilter = document.getElementById('statusFilter');
+      const tableBody = document.getElementById('appTableBody');
+      const closeLogin = document.getElementById('closeLoginModal');
+
+      let currentUser = null;
+
+      async function checkSession() {
+        const { data: { session } } = await supabaseClient.auth.getSession();
+        if (session) {
+          currentUser = session.user;
+          showDashboard();
+        }
+      }
+
+      function showDashboard() {
+        mainContent.style.display = 'none';
+        mainFooter.style.display = 'none';
+        adminDash.style.display = 'block';
+        loginModal.classList.remove('active');
+        loginOverlay.classList.remove('active');
+        loadApplications();
+      }
+
+      function hideDashboard() {
+        mainContent.style.display = '';
+        mainFooter.style.display = '';
+        adminDash.style.display = 'none';
+        currentUser = null;
+      }
+
+      adminLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (currentUser) showDashboard();
+        else { loginModal.classList.add('active');
+          loginOverlay.classList.add('active'); }
+      });
+
+      function closeLoginModal() {
+        loginModal.classList.remove('active');
+        loginOverlay.classList.remove('active');
+      }
+      closeLogin.addEventListener('click', closeLoginModal);
+      loginOverlay.addEventListener('click', closeLoginModal);
+
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        loginError.style.display = 'none';
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) {
+          loginError.textContent = error.message;
+          loginError.style.display = 'block';
+          return;
+        }
+        currentUser = data.user;
+        closeLoginModal();
+        showDashboard();
+        loginForm.reset();
+      });
+
+      logoutBtn.addEventListener('click', async () => {
+        await supabaseClient.auth.signOut();
+        hideDashboard();
+      });
+
+      async function loadApplications(search = '', status = '') {
+        if (!currentUser) return;
+        let query = supabaseClient.from('applications').select('*').order('created_at', { ascending: false });
+        if (status) query = query.eq('status', status);
+        if (search) query = query.or(`first_name.ilike.%${search}%,last_name.ilike.%${search}%,email.ilike.%${search}%`);
+        const { data, error } = await query;
+        if (error || !data) { tableBody.innerHTML =
+            '<tr><td colspan="8">Error loading applications.</td></tr>'; return; }
+        if (data.length === 0) { tableBody.innerHTML =
+          '<tr><td colspan="8">No applications found.</td></tr>'; return; }
+
+        let rows = '';
+        for (const app of data) {
+          let docsHtml = '—';
+          if (app.documents && app.documents.length > 0) {
+            const links = await Promise.all(app.documents.map(async (path) => {
+              const { data: d } = await supabaseClient.storage
+                .from('application-documents')
+                .createSignedUrl(path, 60);
+              return d ? `<a href="${d.signedUrl}" target="_blank" rel="noopener">View</a>` :
+                `<span style="color:red;">Error</span>`;
+            }));
+            docsHtml = links.join('<br>');
+          }
+          rows += `
+            <tr>
+              <td>${app.first_name} ${app.last_name}</td>
+              <td>${app.email}</td>
+              <td>${formatCurrency(app.requested_amount)}</td>
+              <td>${app.loan_type}</td>
+              <td><span class="badge badge-${app.status}">${app.status}</span></td>
+              <td>${docsHtml}</td>
+              <td>${new Date(app.created_at).toLocaleDateString()}</td>
+              <td>
+                ${app.status === 'pending' ? `
+                  <button class="btn btn-sm btn-success" onclick="window.updateStatus(${app.id},'approved')">Approve</button>
+                  <button class="btn btn-sm btn-danger" onclick="window.updateStatus(${app.id},'rejected')">Reject</button>
+                ` : ''}
+              </td>
+            </tr>
+          `;
+        }
+        tableBody.innerHTML = rows;
+      }
+
+      window.updateStatus = async (id, status) => {
+        const { error } = await supabaseClient.from('applications').update({ status }).eq('id', id);
+        if (error) { alert('Update failed.'); return; }
+        loadApplications(searchInput.value, statusFilter.value);
+      };
+
+      searchInput.addEventListener('input', () => loadApplications(searchInput.value, statusFilter.value));
+      statusFilter.addEventListener('change', () => loadApplications(searchInput.value, statusFilter.value));
+
+      checkSession();
+    })();
+
+    // ================================================================
+    // 👤 CLIENT PORTAL
+    // ================================================================
+    (function portal() {
+      const form = document.getElementById('statusForm');
+      const errorDiv = document.getElementById('statusError');
+      const resultDiv = document.getElementById('clientResult');
+      const nameEl = document.getElementById('clientName');
+      const typeEl = document.getElementById('clientLoanType');
+      const amountEl = document.getElementById('clientAmount');
+      const statusEl = document.getElementById('clientStatus');
+      const dateEl = document.getElementById('clientDate');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('statusEmail').value.trim();
+        const ref = document.getElementById('statusRef').value.trim();
+        resultDiv.style.display = 'none';
+        errorDiv.style.display = 'none';
+
+        if (!email || !ref) { errorDiv.textContent = 'Please fill in both fields.';
+          errorDiv.style.display = 'block'; return; }
+
+        const { data, error } = await supabaseClient.rpc('check_application_status', { p_email: email, p_ref: ref });
+        if (error || !data || data.length === 0) {
+          errorDiv.textContent = 'Application not found. Check your email and reference number.';
+          errorDiv.style.display = 'block';
+          return;
+        }
+        const app = data[0];
+        nameEl.textContent = `${app.first_name} ${app.last_name}`;
+        typeEl.textContent = app.loan_type;
+        amountEl.textContent = formatCurrency(app.requested_amount);
+        statusEl.textContent = app.status;
+        dateEl.textContent = new Date(app.created_at).toLocaleDateString();
+        resultDiv.style.display = 'block';
+      });
+    })();
+
+    // ================================================================
+    // 📜 FAQ ACCORDION
+    // ================================================================
+    (function faq() {
+      document.querySelectorAll('.faq-item h3').forEach(heading => {
+        heading.addEventListener('click', () => {
+          const item = heading.closest('.faq-item');
+          const isOpen = item.classList.contains('active');
+          document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+          if (!isOpen) item.classList.add('active');
+        });
+      });
+    })();
+
+    // ================================================================
+    // ⚖️ LEGAL MODALS
+    // ================================================================
+    (function legal() {
+      const legalTerms = {
+        terms: `
+          <h4>Terms of Service</h4>
+          <p><strong>Last updated: 1 June 2026</strong></p>
+          <p>By using this website, you agree to these Terms of Service.</p>
+          <h5>1. Services</h5>
+          <p>AML Lending Group provides loan brokerage, investment placement, and related financial services. All services are subject to approval and applicable laws.</p>
+          <h5>2. User Obligations</h5>
+          <p>You agree to provide accurate information and maintain the confidentiality of your account credentials.</p>
+          <h5>3. Intellectual Property</h5>
+          <p>All content and trademarks on this site are the property of AML Lending Group.</p>
+          <h5>4. Limitation of Liability</h5>
+          <p>AML Lending Group shall not be liable for indirect or consequential damages arising from your use of our services.</p>
+          <h5>5. Governing Law</h5>
+          <p>These terms are governed by the laws of the State of Texas, USA.</p>
+          <h5>6. Contact</h5>
+          <p>Email: <a href="mailto:help@amllending.com" style="color:var(--gold);">help@amllending.com</a></p>
+        `,
+        privacy: `
+          <h4>Privacy Policy</h4>
+          <p><strong>Last updated: 1 June 2026</strong></p>
+          <p>AML Lending Group respects your privacy. This policy explains how we collect, use, and protect your personal data.</p>
+          <h5>1. Information We Collect</h5>
+          <ul style="padding-left:1.5rem;list-style:disc;">
+            <li>Personal identification: Name, email, phone, documents</li>
+            <li>Financial data: Loan amount, type, purpose</li>
+            <li>Technical data: IP address, browser type</li>
+          </ul>
+          <h5>2. How We Use Your Information</h5>
+          <ul style="padding-left:1.5rem;list-style:disc;">
+            <li>Process loan applications</li>
+            <li>Communicate about your status</li>
+            <li>Comply with legal obligations</li>
+            <li>Improve our services</li>
+          </ul>
+          <h5>3. Data Storage & Security</h5>
+          <p>Your data is stored on Supabase with Row Level Security and encryption in transit. Only authorised personnel can access full application data.</p>
+          <h5>4. Third-Party Services</h5>
+          <p>We use EmailJS for notifications and Paystack for payments. These providers have their own privacy policies.</p>
+          <h5>5. Your Rights</h5>
+          <p>You can access, correct, or delete your personal data by contacting us. We will respond within 30 days.</p>
+          <h5>6. Contact</h5>
+          <p>Email: <a href="mailto:help@amllending.com" style="color:var(--gold);">help@amllending.com</a></p>
+        `
+      };
+
+      const overlay = document.getElementById('legalModalOverlay');
+      const modal = document.getElementById('legalModal');
+      const title = document.getElementById('legalModalTitle');
+      const body = document.getElementById('legalModalBody');
+      const closeBtn = document.getElementById('closeLegalModal');
+
+      window.showLegal = function(type) {
+        title.textContent = type === 'terms' ? 'Terms of Service' : 'Privacy Policy';
+        body.innerHTML = legalTerms[type] || '<p>Content not found.</p>';
+        overlay.classList.add('active');
+        modal.classList.add('active');
+      };
+
+      function closeLegal() {
+        overlay.classList.remove('active');
+        modal.classList.remove('active');
+      }
+      closeBtn.addEventListener('click', closeLegal);
+      overlay.addEventListener('click', closeLegal);
+    })();
+
+    // ================================================================
+    // 🧹 HEADER SCROLL EFFECT
+    // ================================================================
+    (function headerScroll() {
+      const header = document.getElementById('siteHeader');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+      });
+    })();
+  </script>
+</body>
+</html>

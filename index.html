@@ -840,27 +840,12 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
-    // --- Supabase, EmailJS, Paystack Initialization ---
-    const SUPABASE_URL = 'SUPABASE_URL';
-    const SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY';
-    const EMAILJS_PUBLIC_KEY = 'EMAILJS_PUBLIC_KEY';
-    const PAYSTACK_PUBLIC_KEY = 'PAYSTACK_PUBLIC_KEY';
-    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    (function() {
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-    })();
-
-    // --- Generate reference number ---
-    function generateRef() {
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-      let result = 'AML-';
-      for (let i = 0; i < 6; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return result;
-    }
-
-               // --- Mobile Menu (final, manual scroll) ---
+    // --- Mobile Menu (runs first, independent of any backend setup below) ---
+    // This is intentionally placed before the Supabase/EmailJS/Paystack
+    // initialization. Those depend on keys that may not be configured yet,
+    // and a thrown error there would otherwise stop this script tag's
+    // execution entirely, leaving the hamburger menu dead. Keeping the
+    // navigation script first (and self-contained) guarantees it always works.
     document.addEventListener('DOMContentLoaded', function () {
       const hamburger = document.getElementById('hamburger');
       const navLinks  = document.getElementById('navLinks');
@@ -930,6 +915,38 @@
         if (e.key === 'Escape' && navLinks.classList.contains('active')) closeMenu();
       });
     });
+
+    // --- Supabase, EmailJS, Paystack Initialization ---
+    // Wrapped in try/catch: if these keys aren't configured yet (or a CDN
+    // fails to load), the error is contained here instead of crashing the
+    // rest of this script tag (which would otherwise silently disable the
+    // calculator, forms, FAQ, etc. below).
+    const SUPABASE_URL = 'SUPABASE_URL';
+    const SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY';
+    const EMAILJS_PUBLIC_KEY = 'EMAILJS_PUBLIC_KEY';
+    const PAYSTACK_PUBLIC_KEY = 'PAYSTACK_PUBLIC_KEY';
+    let supabaseClient = null;
+    try {
+      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    } catch (err) {
+      console.warn('Supabase client not initialized (check SUPABASE_URL / SUPABASE_ANON_KEY):', err);
+    }
+    try {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    } catch (err) {
+      console.warn('EmailJS not initialized (check EMAILJS_PUBLIC_KEY):', err);
+    }
+
+    // --- Generate reference number ---
+    function generateRef() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let result = 'AML-';
+      for (let i = 0; i < 6; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return result;
+    }
+
     // --- Loan Calculator ---
     (function() {
       const loanAmount = document.getElementById('loanAmount');
@@ -1083,6 +1100,10 @@
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        if (!supabaseClient) {
+          alert('Application service is not configured yet. Please try again later or contact support.');
+          return;
+        }
         let isFormValid = true;
         form.querySelectorAll('[required]:not([type="file"])').forEach(input => {
           if (!validateField(input)) isFormValid = false;
@@ -1213,6 +1234,13 @@
 
         // Define the callback as a standalone function
         function onPaymentSuccess(response) {
+          if (!supabaseClient) {
+            console.warn('Supabase not configured; skipping payment record save.');
+            paymentForm.style.display = 'none';
+            paymentSuccess.style.display = 'block';
+            transactionRef.textContent = response.reference;
+            return;
+          }
           // Save payment record to Supabase
           supabaseClient.from('payments').insert([{
             reference: response.reference,
@@ -1269,6 +1297,7 @@
       let currentUser = null;
 
       async function checkSession() {
+        if (!supabaseClient) return;
         const { data: { session } } = await supabaseClient.auth.getSession();
         if (session) {
           currentUser = session.user;
@@ -1309,9 +1338,14 @@
 
       loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        loginError.style.display = 'none';
+        if (!supabaseClient) {
+          loginError.textContent = 'Admin service is not configured yet.';
+          loginError.style.display = 'block';
+          return;
+        }
         const email = document.getElementById('loginEmail').value;
         const password = document.getElementById('loginPassword').value;
-        loginError.style.display = 'none';
         const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
         if (error) {
           loginError.textContent = error.message;
@@ -1414,6 +1448,12 @@
 
         if (!email || !ref) {
           statusError.textContent = 'Please fill in both fields.';
+          statusError.style.display = 'block';
+          return;
+        }
+
+        if (!supabaseClient) {
+          statusError.textContent = 'Status lookup service is not configured yet.';
           statusError.style.display = 'block';
           return;
         }
